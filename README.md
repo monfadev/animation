@@ -4,6 +4,9 @@ Latihan animasi menggunakan Flutter
 ---
 ## Fitur
 - [x] Custom Animation
+- [x] Flutter SVG
+- [x] Flutter Launcher Icons
+
 ---
 ## Tools
 Tools yang digunakan :
@@ -19,4 +22,9 @@ Tools yang digunakan :
    > `flutter pub get`
 2. Running android application
    > `flutter run`
+---
+## Preview
+<p align="center">
+<img src="https://i.ibb.co/rtNG23Q/Screenshot-1627016392.png" height="150" alt="Main">
+</p>
 ---
