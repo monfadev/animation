@@ -1,18 +1,15 @@
-part of'widgets.dart';
+part of 'widgets.dart';
 
 class ButtonAnimationImplementation extends StatefulWidget {
   final String buttonText;
   final Function() onTab;
 
-  const ButtonAnimationImplementation({Key? key, required this.buttonText, required this.onTab})
-      : super(key: key);
+  const ButtonAnimationImplementation({Key? key, required this.buttonText, required this.onTab}) : super(key: key);
   @override
-  _ButtonAnimationImplementationState createState() =>
-      _ButtonAnimationImplementationState();
+  _ButtonAnimationImplementationState createState() => _ButtonAnimationImplementationState();
 }
 
-class _ButtonAnimationImplementationState
-    extends State<ButtonAnimationImplementation> {
+class _ButtonAnimationImplementationState extends State<ButtonAnimationImplementation> {
   bool isPressed = false;
   double _scale = 0.986;
 
@@ -57,7 +54,7 @@ class _ButtonAnimationImplementationState
                       child: Text(
                         widget.buttonText,
                         style: TextStyle(
-                          color:whiteColor,
+                          color: whiteColor,
                           fontWeight: FontWeight.bold,
                           letterSpacing: 1.2,
                           fontSize: 20.0,

@@ -1,11 +1,13 @@
 # Animation
-Latihan animasi menggunakan Flutter
+Animation
 
 ---
 ## Fitur
 - [x] Custom Animation
 - [x] Flutter SVG
 - [x] Flutter Launcher Icons
+- [x] Shimmer
+- [x] Progress Indicator
 
 ---
 ## Tools

@@ -1,4 +1,4 @@
-package com.monfadev.myproject_animation
+package com.animation.monfadevapp
 
 import io.flutter.embedding.android.FlutterActivity
 

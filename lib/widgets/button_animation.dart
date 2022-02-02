@@ -5,14 +5,12 @@ class ButtonAnimation extends StatefulWidget {
   final int? delayTime;
   static bool disableButton = false;
 
-  const ButtonAnimation({Key? key, this.delayTime, required this.child})
-      : super(key: key);
+  const ButtonAnimation({Key? key, this.delayTime, required this.child}) : super(key: key);
   @override
   _ButtonAnimationState createState() => _ButtonAnimationState();
 }
 
-class _ButtonAnimationState extends State<ButtonAnimation>
-    with TickerProviderStateMixin {
+class _ButtonAnimationState extends State<ButtonAnimation> with TickerProviderStateMixin {
   AnimationController? _controller;
 
   @override
