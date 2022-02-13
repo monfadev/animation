@@ -1,3 +1,4 @@
+import 'package:animation/pages/detail_page.dart';
 import 'package:flutter/material.dart';
 import 'package:animation/shared/theme.dart';
 import 'package:animation/widgets/widgets.dart';
@@ -5,10 +6,10 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class MainPage extends StatefulWidget {
   @override
-  _MainpageState createState() => _MainpageState();
+  _MainPageState createState() => _MainPageState();
 }
 
-class _MainpageState extends State<MainPage> {
+class _MainPageState extends State<MainPage> {
   bool _loading = true;
 
   @override
@@ -38,10 +39,13 @@ class _MainpageState extends State<MainPage> {
                       child: SvgPicture.asset('assets/logo_monfadev.svg'),
                     ),
                   )
-                : Container(
-                    height: 100,
-                    width: 100,
-                    child: SvgPicture.asset('assets/logo_monfadev.svg'),
+                : Hero(
+                    tag: "logo",
+                    child: Container(
+                      height: 100,
+                      width: 100,
+                      child: SvgPicture.asset('assets/logo_monfadev.svg'),
+                    ),
                   ),
             SizedBox(
               height: 50,
@@ -72,6 +76,7 @@ class _MainpageState extends State<MainPage> {
                 buttonText: "Welcome",
                 onTab: () {
                   ButtonAnimation.disableButton ? print("Disable true") : print("I'm pressed");
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => DetailPage()));
                 },
               ),
             )
