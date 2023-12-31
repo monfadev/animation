@@ -1,8 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
-import 'package:animation/shared/theme.dart';
 
 import 'pages/main_page.dart';
 
@@ -63,20 +61,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Container(
-          padding: EdgeInsets.all(20),
-          height: 80,
-          child: LiquidLinearProgressIndicator(
-            value: _value,
-            valueColor: AlwaysStoppedAnimation(blueColor),
-            backgroundColor: whiteColor,
-            borderColor: whiteColor,
-            borderWidth: 1.0,
-            borderRadius: 5.0,
-            direction: Axis.horizontal,
-            center: Text("Loading...", style: TextStyle(color: whiteColor)),
-          ),
-        ),
+        child: Text('Splash Screen'),
       ),
     );
   }

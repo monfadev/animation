@@ -1,18 +1,18 @@
 part of 'widgets.dart';
 
-class DelayedAnimation extends StatefulWidget {
+class TextDelayedAnimation extends StatefulWidget {
   final Widget child;
   final int? delayedAnimation;
   final double aniOffsetX;
   final double aniOffsetY;
   final int aniDuration;
   static bool disableButton = true;
-  const DelayedAnimation({Key? key, required this.delayedAnimation, required this.aniOffsetX, required this.aniOffsetY, required this.aniDuration, required this.child}) : super(key: key);
+  const TextDelayedAnimation({Key? key, required this.delayedAnimation, required this.aniOffsetX, required this.aniOffsetY, required this.aniDuration, required this.child}) : super(key: key);
   @override
-  _DelayedAnimationState createState() => _DelayedAnimationState();
+  _TextDelayedAnimationState createState() => _TextDelayedAnimationState();
 }
 
-class _DelayedAnimationState extends State<DelayedAnimation> with TickerProviderStateMixin {
+class _TextDelayedAnimationState extends State<TextDelayedAnimation> with TickerProviderStateMixin {
   AnimationController? _controller;
   Animation<Offset>? _animationOffset;
 

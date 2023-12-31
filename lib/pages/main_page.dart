@@ -1,7 +1,8 @@
 import 'package:animation/pages/detail_page.dart';
-import 'package:flutter/material.dart';
 import 'package:animation/shared/theme.dart';
 import 'package:animation/widgets/widgets.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class MainPage extends StatefulWidget {
@@ -47,35 +48,23 @@ class _MainPageState extends State<MainPage> {
                       child: SvgPicture.asset('assets/logo_monfadev.svg'),
                     ),
                   ),
-            SizedBox(
-              height: 50,
-            ),
-            DelayedAnimation(
-              aniDuration: 700,
-              aniOffsetX: 0.0,
-              aniOffsetY: 0.35,
-              delayedAnimation: 500,
-              child: Text(
-                "Hi",
-                style: TextStyle(fontSize: 20.0, color: blueColor),
-              ),
-            ),
-            DelayedAnimation(
+            SizedBox(height: 10),
+            TextDelayedAnimation(
               aniDuration: 700,
               aniOffsetX: 0.0,
               aniOffsetY: 0.35,
               delayedAnimation: 1000,
               child: Text("I'm Monfadev", style: TextStyle(fontSize: 20.0, color: blueColor)),
             ),
-            SizedBox(
-              height: 200,
-            ),
+            SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30.0),
               child: ButtonAnimationImplementation(
-                buttonText: "Welcome",
+                buttonText: "Iya, keluar",
                 onTab: () {
-                  ButtonAnimation.disableButton ? print("Disable true") : print("I'm pressed");
+                  // ButtonAnimation.disableButton ? print("Disable true") : print("I'm pressed");
+                  HapticFeedback.vibrate();
+
                   Navigator.push(context, MaterialPageRoute(builder: (context) => DetailPage()));
                 },
               ),

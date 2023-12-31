@@ -11,7 +11,7 @@ class ButtonAnimation extends StatefulWidget {
 }
 
 class _ButtonAnimationState extends State<ButtonAnimation> with TickerProviderStateMixin {
-  AnimationController? _controller;
+  late AnimationController _controller;
 
   @override
   void initState() {
@@ -21,7 +21,7 @@ class _ButtonAnimationState extends State<ButtonAnimation> with TickerProviderSt
       duration: Duration(milliseconds: 1000),
     );
 
-    _controller!.addStatusListener((status) {
+    _controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
         setState(() {
           ButtonAnimation.disableButton = false;
@@ -34,17 +34,17 @@ class _ButtonAnimationState extends State<ButtonAnimation> with TickerProviderSt
     });
 
     if (widget.delayTime == null) {
-      _controller!.forward();
+      _controller.forward();
     } else {
       Timer(Duration(milliseconds: widget.delayTime!), () {
-        _controller!.forward();
+        _controller.forward();
       });
     }
   }
 
   @override
   void dispose() {
-    _controller!.dispose();
+    _controller.dispose();
     super.dispose();
   }
 

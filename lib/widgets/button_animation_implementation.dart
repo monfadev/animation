@@ -10,71 +10,57 @@ class ButtonAnimationImplementation extends StatefulWidget {
 }
 
 class _ButtonAnimationImplementationState extends State<ButtonAnimationImplementation> {
-  bool isPressed = false;
+  bool _isPressed = false;
   double _scale = 0.986;
+  List<PointerMoveEvent> events = [];
 
   void onPressedUp(PointerUpEvent event) {
     setState(() {
-      isPressed = false;
+      _isPressed = false;
     });
   }
 
   void onPressedDown(PointerDownEvent event) {
     setState(() {
-      isPressed = true;
+      _isPressed = true;
     });
+  }
+
+  void onPointerMove(PointerMoveEvent event) {
+    events.add(event);
+
+    if (events.length > 20) {
+      setState(() {
+        events = [];
+        _isPressed = false;
+      });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    return ButtonAnimation(
-      child: GestureDetector(
-        onTap: widget.onTab,
-        child: Listener(
-          onPointerUp: onPressedUp,
-          onPointerDown: onPressedDown,
-          child: isPressed
-              ? Transform.scale(
-                  scale: _scale,
-                  child: Container(
-                    width: double.infinity,
-                    height: 60,
-                    decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black26,
-                          blurRadius: 3.0,
-                          offset: Offset(0, 4),
-                        ),
-                      ],
-                      color: blueColor,
-                      borderRadius: BorderRadius.all(Radius.circular(30)),
-                    ),
-                    child: Center(
-                      child: Text(
-                        widget.buttonText,
-                        style: TextStyle(
-                          color: whiteColor,
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 1.2,
-                          fontSize: 20.0,
-                        ),
-                      ),
-                    ),
-                  ),
-                )
-              : Container(
+    return GestureDetector(
+      onTap: widget.onTab,
+      child: Listener(
+        onPointerUp: onPressedUp,
+        onPointerDown: onPressedDown,
+        onPointerMove: onPointerMove,
+        child: _isPressed
+            ? Transform.scale(
+                scale: _scale,
+                child: Container(
                   width: double.infinity,
                   height: 60,
                   decoration: BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black26,
-                        blurRadius: 5.0,
-                        offset: Offset(0, 10),
-                      ),
-                    ],
-                    color: blueColor,
+                    gradient: LinearGradient(
+                      colors: [
+                        Colors.green.shade900,
+                        Colors.green.shade800,
+                        Colors.green.shade800,
+                        Colors.green.shade800,
+                        Colors.green.shade800,
+                      ],
+                    ),
                     borderRadius: BorderRadius.all(Radius.circular(30)),
                   ),
                   child: Center(
@@ -89,7 +75,36 @@ class _ButtonAnimationImplementationState extends State<ButtonAnimationImplement
                     ),
                   ),
                 ),
-        ),
+              )
+            : Container(
+                width: double.infinity,
+                height: 60,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      Colors.green.shade400,
+                      Colors.green.shade500,
+                      Colors.green.shade600,
+                      Colors.green.shade700,
+                      Colors.green.shade800,
+                    ],
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(30)),
+                ),
+                child: Center(
+                  child: Text(
+                    widget.buttonText,
+                    style: TextStyle(
+                      color: whiteColor,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 1.2,
+                      fontSize: 20.0,
+                    ),
+                  ),
+                ),
+              ),
       ),
     );
   }
